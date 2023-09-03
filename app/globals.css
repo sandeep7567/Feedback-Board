@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body,
+:root {
+  @apply bg-slate-100 h-full
+}
+
+.triangle-vote-up {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 6px 12px 6px;
+  border-color: transparent transparent #888 transparent;
+}
+
+.text-white > .triangle-vote-up {
+  border-color: transparent transparent #fff transparent;
+}
