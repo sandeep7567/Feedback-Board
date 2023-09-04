@@ -105,11 +105,12 @@ const FeedbackItemPopup = (
           <div className="mt-4">
             <span className="text-sm text-gray-600">Attachments:</span>
             <div className="flex gap-2">
-              {(isEditMode ? newUploads : uploads).map((link) => (
+              {(isEditMode ? newUploads : uploads).map((link, index) => (
                 <Attachment
                   handleRemoveFileButtonClick={handleRemoveFileButtonClick}
                   showRemoveButton={isEditMode}
                   link={link}
+                  key={index}
                 />
               ))}
             </div>
@@ -125,7 +126,7 @@ const FeedbackItemPopup = (
               <Icons.close className='w-4 h-4'/>
               Cancel
             </Button>
-            <Button primary onClick={handleSaveButtonClick}>
+            <Button primary={1} onClick={handleSaveButtonClick}>
               {/* <Icons.tick className='w-4 h-4'/>  */}
               Save changes
             </Button>
@@ -144,7 +145,9 @@ const FeedbackItemPopup = (
           </>
         }
         {!isEditMode && (
-           <Button onClick={handleVoteButtonClick} primary>
+           <Button
+            onClick={handleVoteButtonClick}
+            primary={1}>
            {isVotesLoding
              ? <MoonLoader size={18}/>
              : (

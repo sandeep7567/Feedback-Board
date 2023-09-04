@@ -63,6 +63,7 @@ const FeedbackItem = ({
             <Popup title={"Confirm your vote"} narrow setShow={setShowLoginPopup} >
               <div className="p-5 flex w-full md:h-full h-screen justify-center items-center">
                 <Button
+                  primary={1}
                   className="bg-slate-900 w-fit text-slate-200 hover:bg-opacity-100 text-opacity-90 hover:text-opacity-100 bg-opacity-90 text-base py-1.5 px-3"
                   onClick={handleGoogleLoginButtonClick}
                 >
@@ -75,7 +76,7 @@ const FeedbackItem = ({
           
           {
             <Button
-              primary={MyVoted}
+              primary={MyVoted ? 1 : 0}
               onClick={handleVoteButtonClick}
               className="shadow-md border"
               disabled={isVoteLoading}

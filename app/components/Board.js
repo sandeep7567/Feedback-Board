@@ -237,7 +237,7 @@ export default function Board() {
           </div>
           <div>
             <Button
-              primary
+              primary={1}
               onClick={openFeedbackPopupForm}
             >
               Make a suggestion
@@ -251,8 +251,9 @@ export default function Board() {
               Nothing Found
             </div>
           )}
-          {feedbacks.map( feedback => (
+          {feedbacks.map( (feedback, index) => (
               <FeedbackItem
+                key={index}
                 {...feedback}
                 onVotesChange={fetchVotes}
                 votes={votes.filter(v => v.feedbackId.toString() === feedback._id.toString())}

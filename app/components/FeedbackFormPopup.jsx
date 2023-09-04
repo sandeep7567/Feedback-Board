@@ -94,8 +94,9 @@ const FeedbackFormPopup = ({setShow, onCreate}) => {
             )}
             {uploads?.length > 0 && (
               <div className="flex gap-3">
-                {uploads.map((link) => (
+                {uploads.map((link, index) => (
                   <Attachment
+                    key={index}
                     link={link}
                     showRemoveButton
                     handleRemoveFileButtonClick={(ev, link) =>
@@ -111,7 +112,7 @@ const FeedbackFormPopup = ({setShow, onCreate}) => {
           <AttachfilesButton
             onNewFiles={addNewUploads}
           />
-          <Button primary onClick={handleCreatePostButtonClick}>
+          <Button primary={1} onClick={handleCreatePostButtonClick}>
             {session ? "Create Post" : "Login and post"}
           </Button>
         </div>

@@ -72,12 +72,12 @@ const FeedbackItemPopupComments = ({feedbackId}) => {
 
   return (
     <div className="h-full">  
-      {comments?.length > 0 && comments.map((comment) => {
+      {comments?.length > 0 && comments.map((comment, i) => {
         const editingThis = editingComment && editingComment?._id === comment?._id;
         const isAuthor =  !!comment.user.email && comment.user.email === session
         ?.user?.email;
         return (
-          <div className="mb-8">
+          <div key={i} className="mb-8">
             <div className="flex gap-4">
               <Avatar url={comment?.user?.image}  />
               <div className="w-full">
@@ -126,11 +126,13 @@ const FeedbackItemPopupComments = ({feedbackId}) => {
                 </div>
                 {(editingThis ? newCommentUploads : comment?.uploads)?.length > 0 && (
                   <div className="flex gap-2 mt-2">
-                    {(editingThis ? newCommentUploads : comment?.uploads)?.map((link) => (
+                    {(editingThis ? newCommentUploads : comment?.uploads)?.map((link, i) => (
                       <Attachment
                         handleRemoveFileButtonClick={handleRemoveFileButtonClick}
                         showRemoveButton={editingThis}
-                        link={link} />
+                        link={link}
+                        key={i}
+                      />
                     ))}
                   </div>
                 )}

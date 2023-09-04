@@ -62,8 +62,8 @@ const CommentForm = ({feedbackId, onPost}) => {
               Files
             </div>
             <div className="flex gap-3">
-              {uploads.map((link) => (
-                <div>
+              {uploads.map((link, index) => (
+                <div key={index}>
                   <Attachment
                     link={link}
                     showRemoveButton
@@ -79,7 +79,7 @@ const CommentForm = ({feedbackId, onPost}) => {
             onNewFiles={addUploads}
           />
           <Button
-            primary
+            primary={1}
             disabled={commentText === ""}
             onClick={handleCommentButtonClick}
           >
