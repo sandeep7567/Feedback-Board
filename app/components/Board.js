@@ -209,7 +209,7 @@ export default function Board() {
           </p>
         </header>
 
-        <div className="bg-gray-100 px-8 py-4 gap-4 flex items-center border-b">
+        <div className="bg-gray-100 px-8 py-4 gap-4 flex flex-col items-center border-b sm:flex-row">
           <div className="grow flex items-center gap-8 text-gray-400">
             
             <select
